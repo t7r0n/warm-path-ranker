@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pathrank</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    body { margin:0; background:#f7f8fb; color:#111827; }
+    main { max-width:1120px; margin:0 auto; padding:34px 18px 52px; }
+    h1 { margin:0 0 8px; font-size:30px; letter-spacing:0; }
+    p { color:#4b5563; line-height:1.55; max-width:850px; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }
+    .stat, table { background:white; border:1px solid #e5e7eb; border-radius:8px; }
+    .stat { padding:16px; }
+    .stat b { display:block; font-size:26px; }
+    table { width:100%; border-collapse:collapse; overflow:hidden; }
+    th, td { padding:12px; border-bottom:1px solid #e5e7eb; text-align:left; vertical-align:top; }
+    th { background:#eef2ff; }
+    .bar { display:inline-block; height:10px; background:#2563eb; border-radius:999px; margin-right:8px; }
+    code { background:#eef2ff; padding:2px 5px; border-radius:5px; }
+    @media (prefers-color-scheme: dark) {
+      body { background:#0f172a; color:#e5e7eb; }
+      p { color:#cbd5e1; }
+      .stat, table { background:#111827; border-color:#334155; }
+      th { background:#1e293b; }
+      th, td { border-color:#334155; }
+      code { background:#1e293b; }
+    }
+  </style>
+</head>
+<body><main>
+  <h1>Pathrank</h1>
+  <p>An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's "we found 11 paths" into "this path is a 0.78 - here are the 3 features that matter," with a published benchmark for the PE backchannel use case.</p>
+  <section class="stats">
+    <div class="stat">Cases<b>144</b></div>
+    <div class="stat">Blocks<b>14</b></div>
+    <div class="stat">Reviews<b>19</b></div>
+  </section>
+  <table>
+    <thead><tr><th>Scenario</th><th>Action</th><th>Severity</th><th>Evidence</th></tr></thead>
+    <tbody><tr><td>mapped policy boundary</td><td>block release until replay is understood</td><td><span class='bar' style='width:30px'></span>1.708</td><td><code>ev_0099</code></td></tr><tr><td>pitch failure replay</td><td>block release until replay is understood</td><td><span class='bar' style='width:59px'></span>3.333</td><td><code>ev_0044</code></td></tr><tr><td>verata drift</td><td>block release until replay is understood</td><td><span class='bar' style='width:45px'></span>2.5</td><td><code>ev_0022</code></td></tr><tr><td>verata evidence recall</td><td>block release until replay is understood</td><td><span class='bar' style='width:33px'></span>1.875</td><td><code>ev_0132</code></td></tr><tr><td>whole gap</td><td>block release until replay is understood</td><td><span class='bar' style='width:59px'></span>3.333</td><td><code>ev_0143</code></td></tr><tr><td>whole reviewer handoff</td><td>block release until replay is understood</td><td><span class='bar' style='width:46px'></span>2.583</td><td><code>ev_0121</code></td></tr></tbody>
+  </table>
+</main></body></html>

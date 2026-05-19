@@ -1,0 +1,18 @@
+{
+  "company": "Verata",
+  "repo": "pathrank",
+  "metrics": [
+    "verata_coverage",
+    "whole_risk",
+    "pitch_precision",
+    "mapped_latency"
+  ],
+  "failure_modes": [
+    "verata_drift",
+    "whole_gap",
+    "pitch_misroute",
+    "mapped_blindspot"
+  ],
+  "minimum_cases": 144,
+  "requires_evidence_markers": true
+}

@@ -1,0 +1,54 @@
+{
+  "company": "Verata",
+  "company_slug": "verata",
+  "repo": "pathrank",
+  "package": "pathrank",
+  "cli": "pathrank",
+  "title": "Pathrank",
+  "problem": "Verata's whole pitch is \"we mapped your firm's collective network so you can backchannel into deals.\" But the hardest moment for the buyer - the actual associate at Apollo or Vista - is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation? Today the product ranks by graph distance and shared tenure. That's a coarse signal. The PE associate ends up reading 11 LinkedIn pages anyway.",
+  "direction": "An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's \"we found 11 paths\" into \"this path is a 0.78 - here are the 3 features that matter,\" with a published benchmark for the PE backchannel use case.",
+  "why": "Judgment about which problem: every Verata competitor pitch will be \"more data sources, prettier graphs.\" Picking calibration and rationale attacks the only remaining objection in a PE associate's workflow - defensibility in front of an MD.",
+  "terms": [
+    "verata",
+    "whole",
+    "pitch",
+    "mapped",
+    "collective",
+    "network",
+    "backchannel",
+    "deals",
+    "hardest",
+    "moment",
+    "buyer",
+    "actual",
+    "associate",
+    "apollo",
+    "vista",
+    "seconds",
+    "sending",
+    "intro"
+  ],
+  "metrics": [
+    "verata_coverage",
+    "whole_risk",
+    "pitch_precision",
+    "mapped_latency"
+  ],
+  "failure_modes": [
+    "verata_drift",
+    "whole_gap",
+    "pitch_misroute",
+    "mapped_blindspot"
+  ],
+  "sources": [
+    "https://www.veratainsight.com/solutions/talent",
+    "https://www.ycombinator.com/companies/verata",
+    "https://startupintros.com/orgs/verata",
+    "https://www.eightcapital.com/podcast/spotlighting-verata",
+    "https://www.linkedin.com/posts/josh-gardner-957903134_privateequity-operatingpartner-leadership-activity-7307448321965543425-3omX",
+    "https://www.affinity.co/blog/ai-in-private-equity",
+    "https://github.com/nicholasmanske",
+    "https://www.linkedin.com/company/verata-insight"
+  ],
+  "github_url": "https://github.com/t7r0n/pathrank"
+}

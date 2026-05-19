@@ -1,0 +1,48 @@
+# Pathrank
+
+An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's "we found 11 paths" into "this path is a 0.78 - here are the 3 features that matter," with a published benchmark for the PE backchannel use case.
+
+## Why This Exists
+
+Verata's whole pitch is "we mapped your firm's collective network so you can backchannel into deals." But the hardest moment for the buyer - the actual associate at Apollo or Vista - is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation? Today the product ranks by graph distance and shared tenure. That's a coarse signal. The PE associate ends up reading 11 LinkedIn pages anyway.
+
+## What It Builds
+
+- Replays synthetic `verata` and `whole` cases against the project's evidence rules.
+- Scores `verata_coverage`, `whole_risk`, and `pitch_precision` so regressions are visible in CSV and JSON.
+- Plants `verata drift` and `whole gap` failures as negative controls.
+- Writes citation-locked decision claims; unsupported claims fail verification.
+- Exports a review dashboard and demo pack for `pathrank` without hosted services.
+
+## Local Run
+
+```bash
+uv sync
+uv run pathrank all
+uv run pytest -q
+uv run ruff check .
+```
+
+## Outputs
+
+- `outputs/analysis.json`
+- `outputs/scenario_report.csv`
+- `outputs/decision_report.md`
+- `outputs/evidence_packet.md`
+- `outputs/dashboard.html`
+- `outputs/demo_pack.zip`
+
+## Sources
+
+- https://www.veratainsight.com/solutions/talent
+- https://www.ycombinator.com/companies/verata
+- https://startupintros.com/orgs/verata
+- https://www.eightcapital.com/podcast/spotlighting-verata
+- https://www.linkedin.com/posts/josh-gardner-957903134_privateequity-operatingpartner-leadership-activity-7307448321965543425-3omX
+- https://www.affinity.co/blog/ai-in-private-equity
+- https://github.com/nicholasmanske
+- https://www.linkedin.com/company/verata-insight
+
+## Boundary
+
+This repository uses synthetic fixtures only. It has no credentials, no customer data, no outreach data, and no dependency on a hosted API.

@@ -1,0 +1,7 @@
+scenario,cases,blocks,reviews,mean_severity,mean_score,top_evidence_id,recommended_action
+mapped policy boundary,24,2,3,1.708,0.2648,ev_0099,block release until replay is understood
+pitch failure replay,24,2,4,3.333,0.5298,ev_0044,block release until replay is understood
+verata drift,24,2,3,2.5,0.4057,ev_0022,block release until replay is understood
+verata evidence recall,24,3,3,1.875,0.2926,ev_0132,block release until replay is understood
+whole gap,24,3,2,3.333,0.5044,ev_0143,block release until replay is understood
+whole reviewer handoff,24,2,4,2.583,0.4003,ev_0121,block release until replay is understood
