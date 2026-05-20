@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520" role="img" aria-label="Verata project working dashboard preview">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #d9e2ec; stroke-width: 1.2; }
+      .title { font: 700 32px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .sub { font: 400 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .label { font: 650 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2937; }
+      .small { font: 500 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64748b; }
+      .metric { font: 750 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="520" rx="0"/>
+  <rect class="panel" x="28" y="28" width="1064" height="464" rx="18"/>
+  <text class="title" x="48" y="82">Verata evidence workbench</text>
+  <text class="sub" x="48" y="116">An open source, on prem friendly warm path scoring + evaluation harness that turns Verata&#x27;s &quot;we found 11 paths&quot; into &quot;this path is a 0.78 - here are the 3 features that matter,&quot; with a published benchmark for the PE backchannel use case.</text>
+  <rect x="48" y="140" width="210" height="72" rx="14" fill="#eff6ff"/>
+  <text class="small" x="68" y="168">pressure index</text>
+  <text class="metric" x="68" y="198">0.3167</text>
+  <rect x="276" y="140" width="210" height="72" rx="14" fill="#ecfeff"/>
+  <text class="small" x="296" y="168">evidence density</text>
+  <text class="metric" x="296" y="198">17.75</text>
+  <rect x="504" y="140" width="330" height="72" rx="14" fill="#f0fdf4"/>
+  <text class="small" x="524" y="168">highest leverage</text>
+  <text class="metric" x="524" y="198">verata evidence replay</text>
+  <text x="48" y="172" class="label">verata_coverage</text><rect x="48" y="184" width="264" height="20" rx="6" fill="#2563eb"/><text x="328" y="199" class="small">ev_0044</text><text x="48" y="230" class="label">whole_risk</text><rect x="48" y="242" width="262" height="20" rx="6" fill="#0891b2"/><text x="326" y="257" class="small">ev_0099</text><text x="48" y="288" class="label">pitch_precision</text><rect x="48" y="300" width="261" height="20" rx="6" fill="#16a34a"/><text x="325" y="315" class="small">ev_0022</text><text x="48" y="346" class="label">mapped_latency</text><rect x="48" y="358" width="261" height="20" rx="6" fill="#ca8a04"/><text x="325" y="373" class="small">ev_0033</text>
+  <text class="small" x="48" y="466">Generated locally from fixture replay, analysis.json, and citation-locked evidence IDs.</text>
+</svg>

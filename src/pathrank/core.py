@@ -10,7 +10,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-from . import domain
+from . import domain, strategy
 
 
 class ProjectError(RuntimeError):
@@ -147,6 +147,10 @@ def analyze(root: Path | None = None) -> dict[str, Any]:
         packet.append(f"- {row['evidence_id']}: {row['evidence_quote']}")
     (outputs / "evidence_packet.md").write_text("\n".join(packet) + "\n", encoding="utf-8")
     domain.write_domain_artifacts(outputs, profile, rows, clusters)
+    model = strategy.build_signal_model(rows, clusters)
+    result["strategy"] = model
+    (outputs / "strategy_model.json").write_text(json.dumps(model, indent=2), encoding="utf-8")
+    strategy.write_showcase_assets(outputs, profile, rows, clusters, model)
     return result
 
 
@@ -161,6 +165,11 @@ def verify(root: Path | None = None) -> dict[str, Any]:
         "domain_rubric.json",
         "failure_matrix.md",
         "trace_graph.mmd",
+        "strategy_model.json",
+        "operator_brief.md",
+        "architecture.json",
+        "project_working.svg",
+        "evidence_map.svg",
     ]
     missing = [name for name in required if not (outputs / name).exists()]
     if missing:
@@ -185,6 +194,9 @@ def verify(root: Path | None = None) -> dict[str, Any]:
         "clusters_present": len(analysis["clusters"]) >= 4,
         "domain_rubric_present": (outputs / "domain_rubric.json").exists(),
         "failure_matrix_present": (outputs / "failure_matrix.md").exists(),
+        "strategy_model_present": (outputs / "strategy_model.json").exists(),
+        "visual_assets_present": (outputs / "project_working.svg").exists() and (outputs / "evidence_map.svg").exists(),
+        "operator_brief_present": (outputs / "operator_brief.md").exists(),
     }
     if not all(checks.values()):
         raise ProjectError(f"failed checks: {checks}")
