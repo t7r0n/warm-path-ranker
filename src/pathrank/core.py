@@ -1,16 +1,16 @@
 from __future__ import annotations
 
 import csv
-import hashlib
 import json
 import re
 import shutil
 import statistics
 import zipfile
 from collections import defaultdict
-from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
+
+from . import domain
 
 
 class ProjectError(RuntimeError):
@@ -28,12 +28,6 @@ def load_profile(root: Path | None = None) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def stable_float(*parts: str, low: float = 0.0, high: float = 1.0) -> float:
-    digest = hashlib.sha256("|".join(parts).encode()).hexdigest()
-    value = int(digest[:10], 16) / float(16**10)
-    return round(low + (high - low) * value, 4)
-
-
 def reset_dirs(root: Path) -> tuple[Path, Path]:
     fixtures = root / "fixtures"
     outputs = root / "outputs"
@@ -44,55 +38,11 @@ def reset_dirs(root: Path) -> tuple[Path, Path]:
     return fixtures, outputs
 
 
-def scenario_names(profile: dict[str, Any]) -> list[str]:
-    terms = profile["terms"]
-    failures = profile["failure_modes"]
-    return [
-        f"{terms[0]} evidence recall",
-        f"{terms[1]} reviewer handoff",
-        f"{terms[2]} failure replay",
-        f"{terms[3]} policy boundary",
-        f"{failures[0].replace('_', ' ')}",
-        f"{failures[1].replace('_', ' ')}",
-    ]
-
-
 def init_demo(root: Path | None = None, records: int = 144) -> dict[str, Any]:
     project_root = root_path(root)
     profile = load_profile(project_root)
     fixtures, _ = reset_dirs(project_root)
-    scenarios = scenario_names(profile)
-    base = datetime(2026, 1, 1, tzinfo=UTC)
-    rows = []
-    for index in range(records):
-        scenario = scenarios[index % len(scenarios)]
-        failure = profile["failure_modes"][index % len(profile["failure_modes"])]
-        metric = profile["metrics"][index % len(profile["metrics"])]
-        status = "block" if index % 11 == 0 else "review" if index % 7 == 0 else "pass"
-        severity = 5 if status == "block" else 4 if status == "review" else 1 + (index % 3)
-        confidence = stable_float(profile["repo"], scenario, str(index), low=0.61, high=0.97)
-        evidence_id = f"ev_{index:04d}"
-        row = {
-            "case_id": f"case_{index:04d}",
-            "timestamp": (base + timedelta(minutes=index * 13)).isoformat(),
-            "scenario": scenario,
-            "failure_mode": failure,
-            "metric": metric,
-            "status": status,
-            "severity": severity,
-            "score": round(confidence * severity / 5, 4),
-            "evidence_id": evidence_id,
-            "evidence_quote": (
-                f"{profile['company']} synthetic case {index} links {scenario} to "
-                f"{failure} with {metric}={confidence}."
-            ),
-            "expected_action": {
-                "block": "block release until replay is understood",
-                "review": "route to expert review with evidence packet",
-                "pass": "accept and monitor with regression coverage",
-            }[status],
-        }
-        rows.append(row)
+    rows = domain.build_cases(profile, records)
     (fixtures / "cases.jsonl").write_text(
         "\n".join(json.dumps(row, sort_keys=True) for row in rows) + "\n",
         encoding="utf-8",
@@ -104,6 +54,7 @@ def init_demo(root: Path | None = None, records: int = 144) -> dict[str, Any]:
                 "repo": profile["repo"],
                 "metrics": profile["metrics"],
                 "failure_modes": profile["failure_modes"],
+                "domain_archetypes": profile.get("archetypes", []),
                 "minimum_cases": records,
                 "requires_evidence_markers": True,
             },
@@ -195,13 +146,22 @@ def analyze(root: Path | None = None) -> dict[str, Any]:
     for row in rows[:36]:
         packet.append(f"- {row['evidence_id']}: {row['evidence_quote']}")
     (outputs / "evidence_packet.md").write_text("\n".join(packet) + "\n", encoding="utf-8")
+    domain.write_domain_artifacts(outputs, profile, rows, clusters)
     return result
 
 
 def verify(root: Path | None = None) -> dict[str, Any]:
     project_root = root_path(root)
     outputs = project_root / "outputs"
-    required = ["analysis.json", "scenario_report.csv", "decision_report.md", "evidence_packet.md"]
+    required = [
+        "analysis.json",
+        "scenario_report.csv",
+        "decision_report.md",
+        "evidence_packet.md",
+        "domain_rubric.json",
+        "failure_matrix.md",
+        "trace_graph.mmd",
+    ]
     missing = [name for name in required if not (outputs / name).exists()]
     if missing:
         raise ProjectError(f"missing outputs: {missing}")
@@ -223,6 +183,8 @@ def verify(root: Path | None = None) -> dict[str, Any]:
         "all_statuses_present": all(analysis["status_counts"][key] > 0 for key in ["pass", "review", "block"]),
         "evidence_claims_supported": True,
         "clusters_present": len(analysis["clusters"]) >= 4,
+        "domain_rubric_present": (outputs / "domain_rubric.json").exists(),
+        "failure_matrix_present": (outputs / "failure_matrix.md").exists(),
     }
     if not all(checks.values()):
         raise ProjectError(f"failed checks: {checks}")
@@ -319,6 +281,9 @@ def export_demo_pack(root: Path | None = None) -> Path:
             "scenario_report.csv",
             "decision_report.md",
             "evidence_packet.md",
+            "domain_rubric.json",
+            "failure_matrix.md",
+            "trace_graph.mmd",
             "dashboard.html",
             "benchmark.json",
             "test_results.md",

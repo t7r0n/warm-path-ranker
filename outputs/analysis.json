@@ -9,74 +9,54 @@
   },
   "clusters": [
     {
-      "scenario": "mapped policy boundary",
-      "cases": 24,
-      "blocks": 2,
-      "reviews": 3,
-      "mean_severity": 1.708,
-      "mean_score": 0.2648,
+      "scenario": "mapped operator packet",
+      "cases": 36,
+      "blocks": 4,
+      "reviews": 5,
+      "mean_severity": 2.556,
+      "mean_score": 0.4121,
       "top_evidence_id": "ev_0099",
-      "recommended_action": "block release until replay is understood"
+      "recommended_action": "accept only if decision claims cite fixture evidence"
     },
     {
-      "scenario": "pitch failure replay",
-      "cases": 24,
-      "blocks": 2,
-      "reviews": 4,
-      "mean_severity": 3.333,
-      "mean_score": 0.5298,
-      "top_evidence_id": "ev_0044",
-      "recommended_action": "block release until replay is understood"
-    },
-    {
-      "scenario": "verata drift",
-      "cases": 24,
-      "blocks": 2,
-      "reviews": 3,
-      "mean_severity": 2.5,
-      "mean_score": 0.4057,
+      "scenario": "pitch regression harness",
+      "cases": 36,
+      "blocks": 3,
+      "reviews": 5,
+      "mean_severity": 2.528,
+      "mean_score": 0.3896,
       "top_evidence_id": "ev_0022",
-      "recommended_action": "block release until replay is understood"
+      "recommended_action": "open a regression issue with trace and benchmark delta"
     },
     {
-      "scenario": "verata evidence recall",
-      "cases": 24,
+      "scenario": "verata evidence replay",
+      "cases": 36,
+      "blocks": 4,
+      "reviews": 5,
+      "mean_severity": 2.611,
+      "mean_score": 0.4147,
+      "top_evidence_id": "ev_0044",
+      "recommended_action": "block release until cited evidence is regenerated"
+    },
+    {
+      "scenario": "whole boundary probe",
+      "cases": 36,
       "blocks": 3,
-      "reviews": 3,
-      "mean_severity": 1.875,
-      "mean_score": 0.2926,
-      "top_evidence_id": "ev_0132",
-      "recommended_action": "block release until replay is understood"
-    },
-    {
-      "scenario": "whole gap",
-      "cases": 24,
-      "blocks": 3,
-      "reviews": 2,
-      "mean_severity": 3.333,
-      "mean_score": 0.5044,
-      "top_evidence_id": "ev_0143",
-      "recommended_action": "block release until replay is understood"
-    },
-    {
-      "scenario": "whole reviewer handoff",
-      "cases": 24,
-      "blocks": 2,
       "reviews": 4,
-      "mean_severity": 2.583,
-      "mean_score": 0.4003,
-      "top_evidence_id": "ev_0121",
-      "recommended_action": "block release until replay is understood"
+      "mean_severity": 2.528,
+      "mean_score": 0.4063,
+      "top_evidence_id": "ev_0033",
+      "recommended_action": "route to reviewer with evidence packet"
     }
   ],
   "highest_risk": {
-    "scenario": "whole gap",
-    "cases": 24,
-    "blocks": 3,
-    "reviews": 2,
-    "mean_severity": 3.333,
-    "mean_score": 0.5044,
-    "top_evidence_id": "ev_0143",
-    "recommended_action": "block release until replay is understood"
+    "scenario": "verata evidence replay",
+    "cases": 36,
+    "blocks": 4,
+    "reviews": 5,
+    "mean_severity": 2.611,
+    "mean_score": 0.4147,
+    "top_evidence_id": "ev_0044",
+    "recommended_action": "block release until cited evidence is regenerated"
   }
 }

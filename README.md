@@ -29,6 +29,9 @@ uv run ruff check .
 - `outputs/scenario_report.csv`
 - `outputs/decision_report.md`
 - `outputs/evidence_packet.md`
+- `outputs/domain_rubric.json`
+- `outputs/failure_matrix.md`
+- `outputs/trace_graph.mmd`
 - `outputs/dashboard.html`
 - `outputs/demo_pack.zip`
 

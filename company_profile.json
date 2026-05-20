@@ -40,6 +40,28 @@
     "pitch_misroute",
     "mapped_blindspot"
   ],
+  "archetypes": [
+    {
+      "name": "verata evidence replay",
+      "trigger": "verata signal changes while whole context is stale",
+      "expected": "block release until cited evidence is regenerated"
+    },
+    {
+      "name": "whole boundary probe",
+      "trigger": "whole handoff crosses a policy or trust boundary",
+      "expected": "route to reviewer with evidence packet"
+    },
+    {
+      "name": "pitch regression harness",
+      "trigger": "pitch behavior regresses against the last accepted fixture",
+      "expected": "open a regression issue with trace and benchmark delta"
+    },
+    {
+      "name": "mapped operator packet",
+      "trigger": "mapped output needs a human-readable audit packet",
+      "expected": "accept only if decision claims cite fixture evidence"
+    }
+  ],
   "sources": [
     "https://www.veratainsight.com/solutions/talent",
     "https://www.ycombinator.com/companies/verata",

@@ -1,0 +1,66 @@
+{
+  "repo": "pathrank",
+  "company": "Verata",
+  "rubric_axes": [
+    {
+      "axis": "verata_coverage",
+      "failures": [
+        "verata_drift"
+      ],
+      "evidence_required": true
+    },
+    {
+      "axis": "whole_risk",
+      "failures": [
+        "whole_gap"
+      ],
+      "evidence_required": true
+    },
+    {
+      "axis": "pitch_precision",
+      "failures": [
+        "pitch_misroute"
+      ],
+      "evidence_required": true
+    },
+    {
+      "axis": "mapped_latency",
+      "failures": [
+        "mapped_blindspot"
+      ],
+      "evidence_required": true
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "verata evidence replay",
+      "trigger": "verata signal changes while whole context is stale",
+      "expected": "block release until cited evidence is regenerated"
+    },
+    {
+      "name": "whole boundary probe",
+      "trigger": "whole handoff crosses a policy or trust boundary",
+      "expected": "route to reviewer with evidence packet"
+    },
+    {
+      "name": "pitch regression harness",
+      "trigger": "pitch behavior regresses against the last accepted fixture",
+      "expected": "open a regression issue with trace and benchmark delta"
+    },
+    {
+      "name": "mapped operator packet",
+      "trigger": "mapped output needs a human-readable audit packet",
+      "expected": "accept only if decision claims cite fixture evidence"
+    }
+  ],
+  "sources_used": [
+    "https://www.veratainsight.com/solutions/talent",
+    "https://www.ycombinator.com/companies/verata",
+    "https://startupintros.com/orgs/verata",
+    "https://www.eightcapital.com/podcast/spotlighting-verata",
+    "https://www.linkedin.com/posts/josh-gardner-957903134_privateequity-operatingpartner-leadership-activity-7307448321965543425-3omX",
+    "https://www.affinity.co/blog/ai-in-private-equity",
+    "https://github.com/nicholasmanske",
+    "https://www.linkedin.com/company/verata-insight"
+  ]
+}

@@ -11,8 +11,10 @@ def test_full_local_workflow(tmp_path):
     result = core.run_all(tmp_path)
     assert result["analysis"]["cases"] >= 120
     assert result["checks"]["evidence_claims_supported"] is True
+    assert result["checks"]["domain_rubric_present"] is True
     assert (tmp_path / "outputs" / "dashboard.html").exists()
     assert (tmp_path / "outputs" / "demo_pack.zip").exists()
+    assert (tmp_path / "outputs" / "failure_matrix.md").exists()
 
 
 def test_evidence_claims_are_citation_locked(tmp_path):
@@ -31,3 +33,11 @@ def test_profile_is_public_safe():
     forbidden = ["@", "client_secret", "refresh_token", "private_key", "gmail"]
     blob = json.dumps(profile).lower()
     assert not any(item in blob for item in forbidden)
+
+
+def test_domain_rules_are_project_specific():
+    profile = json.loads(open("company_profile.json", encoding="utf-8").read())
+    assert len(profile["archetypes"]) >= 4
+    names = {item["name"] for item in profile["archetypes"]}
+    assert len(names) == len(profile["archetypes"])
+    assert not {"every", "including"} & set(profile["terms"][:4])
