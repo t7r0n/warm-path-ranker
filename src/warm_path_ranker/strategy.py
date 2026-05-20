@@ -6,15 +6,15 @@ from pathlib import Path
 from typing import Any
 
 
-COMPANY = 'Pathrank'
-REPO = 'pathrank'
+COMPANY = 'Warm Path Evidence Ranker'
+REPO = 'warm-path-ranker'
 PROJECT_TERMS = ['evidence', 'workflow', 'review', 'claims', 'fixtures', 'replay', 'handoff', 'trace', 'policy', 'decision', 'coverage', 'latency']
 PROJECT_METRICS = ['evidence_coverage', 'handoff_risk', 'claim_precision', 'review_latency']
 PROJECT_FAILURES = ['evidence_drift', 'handoff_gap', 'claim_misroute', 'review_blindspot']
 PROJECT_ARCHETYPES = [{'name': 'evidence replay', 'trigger': 'source evidence changes while workflow context is stale', 'expected': 'block release until cited evidence is regenerated'}, {'name': 'handoff boundary probe', 'trigger': 'handoff crosses a policy or trust boundary', 'expected': 'route to reviewer with evidence packet'}, {'name': 'claim regression harness', 'trigger': 'claim behavior regresses against the last accepted fixture', 'expected': 'open a regression issue with trace and benchmark delta'}, {'name': 'review operator packet', 'trigger': 'review output needs a human-readable audit packet', 'expected': 'accept only if decision claims cite fixture evidence'}]
-PROJECT_DIRECTION = 'An open source, on prem friendly warm path scoring + evaluation harness that turns Pathrank\'s "we found 11 paths" into "this path is a 0.78 - here are the 3 features that matter," with a published benchmark for the PE backchannel use case.'
+PROJECT_DIRECTION = 'A local warm-path scoring and evidence replay harness that turns a set of candidate relationship paths into ranked, cited recommendations with repeatable review gates for backchannel workflows.'
 VISUAL_THEME = {'name': 'clinical ops', 'bg': '#f7faf9', 'ink': '#10201c', 'muted': '#475569', 'border': '#d7e2df', 'a': '#0f766e', 'b': '#4f46e5', 'c': '#b45309', 'd': '#2563eb', 'soft_a': '#ecfdf5', 'soft_b': '#eef2ff', 'soft_c': '#fffbeb', 'soft_d': '#f0f9ff', 'hero': 'Evidence Triage Board', 'left': 'operational gates under review', 'right': 'review packets with citations', 'chain': 'evidence-to-decision chain', 'lane': 'case lane', 'gate': 'failure gate', 'action': 'clinical action'}
-HERO_TITLE = 'Pathrank'
+HERO_TITLE = 'Warm Path Evidence Ranker'
 
 
 def _short(value: str, limit: int = 44) -> str:

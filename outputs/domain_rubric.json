@@ -1,6 +1,6 @@
 {
-  "repo": "pathrank",
-  "company": "Pathrank",
+  "repo": "warm-path-ranker",
+  "company": "Warm Path Evidence Ranker",
   "rubric_axes": [
     {
       "axis": "evidence_coverage",

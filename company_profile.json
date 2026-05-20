@@ -1,12 +1,12 @@
 {
-  "company": "Pathrank",
-  "company_slug": "pathrank",
-  "repo": "pathrank",
-  "package": "pathrank",
-  "cli": "pathrank",
-  "title": "Pathrank",
-  "problem": "Pathrank's whole pitch is \"we mapped your firm's collective network so you can backchannel into deals.\" But the hardest moment for the buyer - the actual associate at Apollo or Vista - is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation? Today the product ranks by graph distance and shared tenure. That's a coarse signal. The PE associate ends up reading 11 LinkedIn pages anyway.",
-  "direction": "An open source, on prem friendly warm path scoring + evaluation harness that turns Pathrank's \"we found 11 paths\" into \"this path is a 0.78 - here are the 3 features that matter,\" with a published benchmark for the PE backchannel use case.",
+  "company": "Warm Path Evidence Ranker",
+  "company_slug": "warm-path-evidence-ranker",
+  "repo": "warm-path-ranker",
+  "package": "warm_path_ranker",
+  "cli": "warm-path-ranker",
+  "title": "Warm Path Evidence Ranker",
+  "problem": "Warm-introduction teams often get several plausible relationship paths, but the hard operational question is which route is most likely to create a useful conversation without wasting social capital. Graph distance alone misses recency, role fit, evidence freshness, and handoff risk.",
+  "direction": "A local warm-path scoring and evidence replay harness that turns a set of candidate relationship paths into ranked, cited recommendations with repeatable review gates for backchannel workflows.",
   "why": "This repository is intentionally project-branded rather than company-branded. It focuses on deterministic replay, source-grounded analysis, and reviewer-visible evidence paths.",
   "terms": [
     "evidence",
@@ -57,5 +57,5 @@
     }
   ],
   "sources": [],
-  "github_url": "https://github.com/t7r0n/pathrank"
+  "github_url": "https://github.com/t7r0n/warm-path-ranker"
 }

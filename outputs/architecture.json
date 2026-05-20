@@ -24,7 +24,7 @@
       "scenario": "evidence replay",
       "metric": "evidence_coverage",
       "failure_mode": "evidence_drift",
-      "evidence": "ev_0000",
+      "evidence": "ev_0132",
       "operator_action": "block release until cited evidence is regenerated",
       "severity": 2.611
     },
@@ -33,7 +33,7 @@
       "scenario": "review operator packet",
       "metric": "handoff_risk",
       "failure_mode": "handoff_gap",
-      "evidence": "ev_0055",
+      "evidence": "ev_0011",
       "operator_action": "accept only if decision claims cite fixture evidence",
       "severity": 2.556
     },
@@ -42,7 +42,7 @@
       "scenario": "claim regression harness",
       "metric": "claim_precision",
       "failure_mode": "claim_misroute",
-      "evidence": "ev_0066",
+      "evidence": "ev_0110",
       "operator_action": "open a regression issue with trace and benchmark delta",
       "severity": 2.528
     },
@@ -51,7 +51,7 @@
       "scenario": "handoff boundary probe",
       "metric": "review_latency",
       "failure_mode": "review_blindspot",
-      "evidence": "ev_0121",
+      "evidence": "ev_0077",
       "operator_action": "route to reviewer with evidence packet",
       "severity": 2.528
     }

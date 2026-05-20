@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import xml.etree.ElementTree as ET
 
-from pathrank import core
+from warm_path_ranker import core
 
 
 def test_full_local_workflow(tmp_path):
@@ -59,7 +59,7 @@ def test_strategy_model_and_visuals_are_generated(tmp_path):
 
 
 def test_strategy_code_is_company_specific():
-    from pathrank import strategy
+    from warm_path_ranker import strategy
 
     assert strategy.COMPANY
     assert strategy.REPO

@@ -1,35 +1,35 @@
-# Pathrank
+# Warm Path Evidence Ranker
 
-An open source, on prem friendly warm path scoring + evaluation harness that turns Pathrank's "we found 11 paths" into "this path is a 0.78 — here are the 3 features that matter," with a published benchmark for the PE backchannel use case.
+A local warm-path scoring and evidence replay harness that turns a set of candidate relationship paths into ranked, cited recommendations with repeatable review gates for backchannel workflows.
 
-![Pathrank working dashboard](outputs/project_working.svg)
+![Warm Path Evidence Ranker working dashboard](outputs/project_working.svg)
 
 ## Why it exists
 
-Pathrank's whole pitch is "we mapped your firm's collective network so you can backchannel into deals." But the hardest moment for the buyer — the actual associate at Apollo or Vista — is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation? Today the.
+Warm-introduction teams often get several plausible relationship paths, but the hard operational question is which route is most likely to create a useful conversation without wasting social capital. Graph distance alone misses recency, role fit, evidence freshness, and handoff risk.
 
 The project is intentionally built as a local replay harness instead of a slide. It creates fixtures, plants realistic failure modes, produces citation-locked evidence, and turns the result into a dashboard a reviewer can inspect without credentials or hosted services.
 
 ## What is inside
 
 - Deterministic fixture generation for the company-specific risk surface.
-- Strategy code in `src/pathrank/strategy.py` with project-specific scoring and visual evidence.
+- Strategy code in `src/warm_path_ranker/strategy.py` with project-specific scoring and visual evidence.
 - Citation-locked reports where every decision claim points to a generated evidence ID.
 - Two regenerated visual artifacts: `outputs/project_working.svg` and `outputs/evidence_map.svg`.
 - A portable demo pack with JSON, CSV, Markdown, HTML, SVG, benchmark, and test artifacts.
 
-![Pathrank evidence map](outputs/evidence_map.svg)
+![Warm Path Evidence Ranker evidence map](outputs/evidence_map.svg)
 
 ## Signals it measures
 
-- `Pathrank coverage`
+- `Evidence coverage`
 - `whole risk`
 - `pitch precision`
 - `mapped latency`
 
 ## Failure modes it plants
 
-- Pathrank drift
+- evidence drift
 - whole gap
 - pitch misroute
 - mapped blindspot
@@ -38,7 +38,7 @@ The project is intentionally built as a local replay harness instead of a slide.
 
 ```bash
 uv sync
-uv run pathrank all
+uv run warm-path-ranker all
 uv run pytest -q
 uv run ruff check .
 ```

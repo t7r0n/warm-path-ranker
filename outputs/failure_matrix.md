@@ -1,4 +1,4 @@
-# Failure Matrix: Pathrank
+# Failure Matrix: Warm Path Evidence Ranker
 
 | Scenario | Failure mode | Metric | Gate | Evidence |
 | --- | --- | --- | --- | --- |

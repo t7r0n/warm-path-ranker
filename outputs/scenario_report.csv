@@ -1,5 +1,5 @@
 scenario,cases,blocks,reviews,mean_severity,mean_score,top_evidence_id,recommended_action
-claim regression harness,36,3,5,2.528,0.3937,ev_0066,open a regression issue with trace and benchmark delta
-evidence replay,36,4,5,2.611,0.4135,ev_0000,block release until cited evidence is regenerated
-handoff boundary probe,36,3,4,2.528,0.3951,ev_0121,route to reviewer with evidence packet
-review operator packet,36,4,5,2.556,0.4153,ev_0055,accept only if decision claims cite fixture evidence
+claim regression harness,36,3,5,2.528,0.3976,ev_0110,open a regression issue with trace and benchmark delta
+evidence replay,36,4,5,2.611,0.4164,ev_0132,block release until cited evidence is regenerated
+handoff boundary probe,36,3,4,2.528,0.3893,ev_0077,route to reviewer with evidence packet
+review operator packet,36,4,5,2.556,0.3876,ev_0011,accept only if decision claims cite fixture evidence

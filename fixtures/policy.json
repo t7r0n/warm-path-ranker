@@ -1,6 +1,6 @@
 {
-  "company": "Pathrank",
-  "repo": "pathrank",
+  "company": "Warm Path Evidence Ranker",
+  "repo": "warm-path-ranker",
   "metrics": [
     "evidence_coverage",
     "handoff_risk",
