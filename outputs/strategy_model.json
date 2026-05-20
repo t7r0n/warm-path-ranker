@@ -1,69 +1,73 @@
 {
-  "company": "Verata",
+  "company": "Pathrank",
   "repo": "pathrank",
   "terms": [
-    "verata",
-    "whole",
-    "pitch",
-    "mapped",
-    "collective",
-    "network",
-    "backchannel",
-    "deals"
+    "evidence",
+    "workflow",
+    "review",
+    "claims",
+    "fixtures",
+    "replay",
+    "handoff",
+    "trace",
+    "policy",
+    "decision",
+    "coverage",
+    "latency"
   ],
   "metrics": [
-    "verata_coverage",
-    "whole_risk",
-    "pitch_precision",
-    "mapped_latency"
+    "evidence_coverage",
+    "handoff_risk",
+    "claim_precision",
+    "review_latency"
   ],
   "failure_modes": [
-    "verata_drift",
-    "whole_gap",
-    "pitch_misroute",
-    "mapped_blindspot"
+    "evidence_drift",
+    "handoff_gap",
+    "claim_misroute",
+    "review_blindspot"
   ],
-  "evidence_density": 17.75,
+  "evidence_density": 17.5,
   "pressure_index": 0.3167,
   "blocked_share": 0.0972,
   "review_share": 0.1319,
   "top_leverage_points": [
     {
       "rank": 1,
-      "scenario": "verata evidence replay",
-      "metric": "verata_coverage",
-      "failure_mode": "verata_drift",
-      "evidence": "ev_0044",
+      "scenario": "evidence replay",
+      "metric": "evidence_coverage",
+      "failure_mode": "evidence_drift",
+      "evidence": "ev_0000",
       "operator_action": "block release until cited evidence is regenerated",
       "severity": 2.611
     },
     {
       "rank": 2,
-      "scenario": "mapped operator packet",
-      "metric": "whole_risk",
-      "failure_mode": "whole_gap",
-      "evidence": "ev_0099",
+      "scenario": "review operator packet",
+      "metric": "handoff_risk",
+      "failure_mode": "handoff_gap",
+      "evidence": "ev_0055",
       "operator_action": "accept only if decision claims cite fixture evidence",
       "severity": 2.556
     },
     {
       "rank": 3,
-      "scenario": "pitch regression harness",
-      "metric": "pitch_precision",
-      "failure_mode": "pitch_misroute",
-      "evidence": "ev_0022",
+      "scenario": "claim regression harness",
+      "metric": "claim_precision",
+      "failure_mode": "claim_misroute",
+      "evidence": "ev_0066",
       "operator_action": "open a regression issue with trace and benchmark delta",
       "severity": 2.528
     },
     {
       "rank": 4,
-      "scenario": "whole boundary probe",
-      "metric": "mapped_latency",
-      "failure_mode": "mapped_blindspot",
-      "evidence": "ev_0033",
+      "scenario": "handoff boundary probe",
+      "metric": "review_latency",
+      "failure_mode": "review_blindspot",
+      "evidence": "ev_0121",
       "operator_action": "route to reviewer with evidence packet",
       "severity": 2.528
     }
   ],
-  "readout": "Verata gets a local, deterministic pressure test around verata, whole, and pitch. The useful part is the repeatable evidence path from fixture to failure to operator action."
+  "readout": "This local harness runs a deterministic pressure test around evidence, workflow, and review. The useful part is the repeatable evidence path from fixture to failure to operator action."
 }

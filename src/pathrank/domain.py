@@ -9,36 +9,36 @@ from typing import Any
 
 RULES = json.loads(r'''{
   "metrics": [
-    "verata_coverage",
-    "whole_risk",
-    "pitch_precision",
-    "mapped_latency"
+    "evidence_coverage",
+    "handoff_risk",
+    "claim_precision",
+    "review_latency"
   ],
   "failure_modes": [
-    "verata_drift",
-    "whole_gap",
-    "pitch_misroute",
-    "mapped_blindspot"
+    "evidence_drift",
+    "handoff_gap",
+    "claim_misroute",
+    "review_blindspot"
   ],
   "archetypes": [
     {
-      "name": "verata evidence replay",
-      "trigger": "verata signal changes while whole context is stale",
+      "name": "evidence replay",
+      "trigger": "source evidence changes while workflow context is stale",
       "expected": "block release until cited evidence is regenerated"
     },
     {
-      "name": "whole boundary probe",
-      "trigger": "whole handoff crosses a policy or trust boundary",
+      "name": "handoff boundary probe",
+      "trigger": "handoff crosses a policy or trust boundary",
       "expected": "route to reviewer with evidence packet"
     },
     {
-      "name": "pitch regression harness",
-      "trigger": "pitch behavior regresses against the last accepted fixture",
+      "name": "claim regression harness",
+      "trigger": "claim behavior regresses against the last accepted fixture",
       "expected": "open a regression issue with trace and benchmark delta"
     },
     {
-      "name": "mapped operator packet",
-      "trigger": "mapped output needs a human-readable audit packet",
+      "name": "review operator packet",
+      "trigger": "review output needs a human-readable audit packet",
       "expected": "accept only if decision claims cite fixture evidence"
     }
   ]

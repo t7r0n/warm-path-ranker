@@ -1,12 +1,12 @@
 # Pathrank
 
-An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's "we found 11 paths" into "this path is a 0.78 — here are the 3 features that matter," with a published benchmark for the PE backchannel use case.
+An open source, on prem friendly warm path scoring + evaluation harness that turns Pathrank's "we found 11 paths" into "this path is a 0.78 — here are the 3 features that matter," with a published benchmark for the PE backchannel use case.
 
 ![Pathrank working dashboard](outputs/project_working.svg)
 
 ## Why it exists
 
-Verata's whole pitch is "we mapped your firm's collective network so you can backchannel into deals." But the hardest moment for the buyer — the actual associate at Apollo or Vista — is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation? Today the.
+Pathrank's whole pitch is "we mapped your firm's collective network so you can backchannel into deals." But the hardest moment for the buyer — the actual associate at Apollo or Vista — is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation? Today the.
 
 The project is intentionally built as a local replay harness instead of a slide. It creates fixtures, plants realistic failure modes, produces citation-locked evidence, and turns the result into a dashboard a reviewer can inspect without credentials or hosted services.
 
@@ -22,14 +22,14 @@ The project is intentionally built as a local replay harness instead of a slide.
 
 ## Signals it measures
 
-- `verata coverage`
+- `Pathrank coverage`
 - `whole risk`
 - `pitch precision`
 - `mapped latency`
 
 ## Failure modes it plants
 
-- verata drift
+- Pathrank drift
 - whole gap
 - pitch misroute
 - mapped blindspot
@@ -52,17 +52,6 @@ uv run ruff check .
 - `outputs/decision_report.md`
 - `outputs/strategy_model.json`
 - `outputs/demo_pack.zip`
-
-## Sources
-
-- https://www.veratainsight.com/solutions/talent
-- https://www.ycombinator.com/companies/verata
-- https://startupintros.com/orgs/verata
-- https://www.eightcapital.com/podcast/spotlighting-verata
-- https://www.linkedin.com/posts/josh-gardner-957903134_privateequity-operatingpartner-leadership-activity-7307448321965543425-3omX
-- https://www.affinity.co/blog/ai-in-private-equity
-- https://github.com/nicholasmanske
-- https://www.linkedin.com/company/verata-insight
 
 ## Boundary
 

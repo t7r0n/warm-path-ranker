@@ -1,7 +1,7 @@
 [project]
 name = "pathrank"
 version = "0.1.0"
-description = "An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's \"we found 11 paths\" into \"this path is a 0.78 - "
+description = "An open source, on prem friendly warm path scoring + evaluation harness that turns Pathrank's 'we found 11 paths' into '"
 readme = "README.md"
 requires-python = ">=3.12"
 authors = [
