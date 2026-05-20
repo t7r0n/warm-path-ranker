@@ -227,42 +227,68 @@ def dashboard(root: Path | None = None) -> Path:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{profile['title']}</title>
   <style>
-    :root {{ color-scheme: light dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }}
+    :root {{ color-scheme: light dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }}
+    * {{ box-sizing:border-box; }}
     body {{ margin:0; background:#f7f8fb; color:#111827; }}
-    main {{ max-width:1120px; margin:0 auto; padding:34px 18px 52px; }}
-    h1 {{ margin:0 0 8px; font-size:30px; letter-spacing:0; }}
-    p {{ color:#4b5563; line-height:1.55; max-width:850px; }}
-    .stats {{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }}
-    .stat, table {{ background:white; border:1px solid #e5e7eb; border-radius:8px; }}
-    .stat {{ padding:16px; }}
-    .stat b {{ display:block; font-size:26px; }}
-    table {{ width:100%; border-collapse:collapse; overflow:hidden; }}
-    th, td {{ padding:12px; border-bottom:1px solid #e5e7eb; text-align:left; vertical-align:top; }}
-    th {{ background:#eef2ff; }}
-    .bar {{ display:inline-block; height:10px; background:#2563eb; border-radius:999px; margin-right:8px; }}
-    code {{ background:#eef2ff; padding:2px 5px; border-radius:5px; }}
+    main {{ max-width:1180px; margin:0 auto; padding:34px 20px 60px; }}
+    header {{ margin-bottom:22px; }}
+    h1 {{ margin:0 0 10px; font-size:32px; line-height:1.15; letter-spacing:0; }}
+    h2 {{ margin:0 0 14px; font-size:18px; letter-spacing:0; }}
+    p {{ color:#475569; line-height:1.55; max-width:900px; margin:0; }}
+    .stats {{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:24px 0; }}
+    .stat, table, .preview {{ background:white; border:1px solid #d8e1ec; border-radius:8px; }}
+    .stat {{ padding:18px; min-height:92px; }}
+    .stat span {{ color:#64748b; font-weight:650; font-size:13px; }}
+    .stat b {{ display:block; font-size:30px; line-height:1.1; margin-top:8px; }}
+    table {{ width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; }}
+    th, td {{ padding:13px 12px; border-bottom:1px solid #e5e7eb; text-align:left; vertical-align:top; }}
+    th {{ background:#eef2ff; font-size:13px; color:#334155; }}
+    tr:last-child td {{ border-bottom:0; }}
+    .bar {{ display:inline-block; height:10px; background:#2563eb; border-radius:999px; margin-right:8px; vertical-align:middle; }}
+    code {{ background:#eef2ff; padding:2px 6px; border-radius:5px; white-space:nowrap; }}
+    .visuals {{ display:grid; gap:18px; margin-top:24px; }}
+    .preview {{ padding:16px; }}
+    .preview img {{ display:block; width:100%; height:auto; border:1px solid #e5e7eb; border-radius:8px; background:white; }}
     @media (prefers-color-scheme: dark) {{
       body {{ background:#0f172a; color:#e5e7eb; }}
       p {{ color:#cbd5e1; }}
-      .stat, table {{ background:#111827; border-color:#334155; }}
+      .stat, table, .preview {{ background:#111827; border-color:#334155; }}
       th {{ background:#1e293b; }}
       th, td {{ border-color:#334155; }}
       code {{ background:#1e293b; }}
+      .preview img {{ border-color:#334155; }}
+    }}
+    @media (max-width:760px) {{
+      main {{ padding:26px 14px 44px; }}
+      .stats {{ grid-template-columns:1fr; }}
+      table {{ display:block; overflow-x:auto; }}
     }}
   </style>
 </head>
 <body><main>
-  <h1>{profile['title']}</h1>
-  <p>{profile['direction']}</p>
+  <header>
+    <h1>{profile['title']}</h1>
+    <p>{profile['direction']}</p>
+  </header>
   <section class="stats">
-    <div class="stat">Cases<b>{analysis['cases']}</b></div>
-    <div class="stat">Blocks<b>{analysis['status_counts']['block']}</b></div>
-    <div class="stat">Reviews<b>{analysis['status_counts']['review']}</b></div>
+    <div class="stat"><span>Cases replayed</span><b>{analysis['cases']}</b></div>
+    <div class="stat"><span>Blocked gates</span><b>{analysis['status_counts']['block']}</b></div>
+    <div class="stat"><span>Review handoffs</span><b>{analysis['status_counts']['review']}</b></div>
   </section>
   <table>
     <thead><tr><th>Scenario</th><th>Action</th><th>Severity</th><th>Evidence</th></tr></thead>
     <tbody>{''.join(rows)}</tbody>
   </table>
+  <section class="visuals" aria-label="visual evidence">
+    <div class="preview">
+      <h2>Working readout</h2>
+      <img src="project_working.svg" alt="{profile['title']} working dashboard">
+    </div>
+    <div class="preview">
+      <h2>Evidence path</h2>
+      <img src="evidence_map.svg" alt="{profile['title']} evidence path">
+    </div>
+  </section>
 </main></body></html>
 """
     path = outputs / "dashboard.html"

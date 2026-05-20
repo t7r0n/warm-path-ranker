@@ -1,22 +1,22 @@
 # Pathrank
 
-An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's "we found 11 paths" into "this path is a 0.78 - here are the 3 features that matter," with a published benchmark for the PE backchannel use case.
+An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's "we found 11 paths" into "this path is a 0.78 — here are the 3 features that matter," with a published benchmark for the PE backchannel use case.
 
 ![Pathrank working dashboard](outputs/project_working.svg)
 
 ## Why it exists
 
-Verata's whole pitch is "we mapped your firm's collective network so you can backchannel into deals." But the hardest moment for the buyer - the actual associate at Apollo or Vista - is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation?
+Verata's whole pitch is "we mapped your firm's collective network so you can backchannel into deals." But the hardest moment for the buyer — the actual associate at Apollo or Vista — is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation? Today the.
 
-Most internal demos stop at a pretty chart. This repository is built around the harder part: a repeatable path from fixture, to failure, to evidence, to the operator action a serious team would actually trust.
+The project is intentionally built as a local replay harness instead of a slide. It creates fixtures, plants realistic failure modes, produces citation-locked evidence, and turns the result into a dashboard a reviewer can inspect without credentials or hosted services.
 
 ## What is inside
 
-- A deterministic replay harness tuned around verata, whole, and pitch.
-- Company-specific strategy code in `src/pathrank/strategy.py`, not just README-level customization.
-- Citation-locked reports where every decision claim has to point back to a generated evidence ID.
-- Two visual artifacts generated from the latest run: `outputs/project_working.svg` and `outputs/evidence_map.svg`.
-- A portable demo pack with JSON, CSV, Markdown, HTML, SVG, and benchmark artifacts.
+- Deterministic fixture generation for the company-specific risk surface.
+- Strategy code in `src/pathrank/strategy.py` with project-specific scoring and visual evidence.
+- Citation-locked reports where every decision claim points to a generated evidence ID.
+- Two regenerated visual artifacts: `outputs/project_working.svg` and `outputs/evidence_map.svg`.
+- A portable demo pack with JSON, CSV, Markdown, HTML, SVG, benchmark, and test artifacts.
 
 ![Pathrank evidence map](outputs/evidence_map.svg)
 

@@ -5,8 +5,8 @@
   "package": "pathrank",
   "cli": "pathrank",
   "title": "Pathrank",
-  "problem": "Verata's whole pitch is \"we mapped your firm's collective network so you can backchannel into deals.\" But the hardest moment for the buyer - the actual associate at Apollo or Vista - is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation? Today the product ranks by graph distance and shared tenure. That's a coarse signal. The PE associate ends up reading 11 LinkedIn pages anyway.",
-  "direction": "An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's \"we found 11 paths\" into \"this path is a 0.78 - here are the 3 features that matter,\" with a published benchmark for the PE backchannel use case.",
+  "problem": "Verata's whole pitch is \"we mapped your firm's collective network so you can backchannel into deals.\" But the hardest moment for the buyer \u2014 the actual associate at Apollo or Vista \u2014 is the 30 seconds before sending the warm intro request: which of the 11 paths the graph surfaces is the one most likely to result in a useful conversation? Today the product ranks by graph distance and shared tenure. That's a coarse signal. The PE associate ends up reading 11 LinkedIn pages anyway.",
+  "direction": "An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's \"we found 11 paths\" into \"this path is a 0.78 \u2014 here are the 3 features that matter,\" with a published benchmark for the PE backchannel use case.",
   "why": "Judgment about which problem: every Verata competitor pitch will be \"more data sources, prettier graphs.\" Picking calibration and rationale attacks the only remaining objection in a PE associate's workflow - defensibility in front of an MD.",
   "terms": [
     "verata",

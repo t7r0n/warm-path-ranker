@@ -1,6 +1,6 @@
 # Decision Report: Pathrank
 
-An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's "we found 11 paths" into "this path is a 0.78 - here are the 3 features that matter," with a published benchmark for the PE backchannel use case.
+An open source, on prem friendly warm path scoring + evaluation harness that turns Verata's "we found 11 paths" into "this path is a 0.78 — here are the 3 features that matter," with a published benchmark for the PE backchannel use case.
 
 ## Evidence-Grounded Findings
 

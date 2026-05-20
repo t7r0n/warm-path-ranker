@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import xml.etree.ElementTree as ET
 
 from pathrank import core
 
@@ -66,3 +67,27 @@ def test_strategy_code_is_company_specific():
     assert len(set(strategy.PROJECT_METRICS)) == len(strategy.PROJECT_METRICS)
 
 
+def test_svg_layout_uses_bounded_text_and_in_frame_geometry(tmp_path):
+    profile = json.loads(open("company_profile.json", encoding="utf-8").read())
+    (tmp_path / "company_profile.json").write_text(json.dumps(profile), encoding="utf-8")
+    core.run_all(tmp_path)
+
+    for name in ["project_working.svg", "evidence_map.svg"]:
+        svg_path = tmp_path / "outputs" / name
+        root = ET.fromstring(svg_path.read_text(encoding="utf-8"))
+        _, _, width, height = [float(item) for item in root.attrib["viewBox"].split()]
+
+        for rect in root.findall(".//{http://www.w3.org/2000/svg}rect"):
+            x = float(rect.attrib.get("x", 0))
+            y = float(rect.attrib.get("y", 0))
+            w = float(rect.attrib.get("width", 0))
+            h = float(rect.attrib.get("height", 0))
+            assert x >= 0 and y >= 0
+            assert x + w <= width
+            assert y + h <= height
+
+        for text in root.findall(".//{http://www.w3.org/2000/svg}text"):
+            if text.findall("{http://www.w3.org/2000/svg}tspan"):
+                continue
+            value = "".join(text.itertext()).strip()
+            assert len(value) <= 64, f"unbounded text in {name}: {value}"
