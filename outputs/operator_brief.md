@@ -1,6 +1,6 @@
 # Operator Brief: Verata
 
-Verata gets a local, deterministic pressure test around verata, whole, and pitch. The useful part is not the dashboard; it is the repeatable evidence path from fixture to failure to operator action.
+Verata gets a local, deterministic pressure test around verata, whole, and pitch. The useful part is the repeatable evidence path from fixture to failure to operator action.
 
 ## Highest-leverage checks
 
